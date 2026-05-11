@@ -66,9 +66,9 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 120px 56px 80px;
+  padding: 100px 56px 64px;
   position: relative; overflow: hidden;
 }
 
