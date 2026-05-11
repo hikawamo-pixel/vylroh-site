@@ -72,56 +72,48 @@ nav {
   position: relative; overflow: hidden;
 }
 
-/* Slideshow */
-.hero-slides {
-  position: absolute; inset: 0; z-index: 0;
-}
-.hero-slide {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  opacity: 0; transition: opacity 1.2s ease;
-}
-.hero-slide.active { opacity: 1; }
-
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
+/* Gradient animation */
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
   background: linear-gradient(
-    to top,
-    rgba(10,14,10,0.72) 0%,
-    rgba(10,14,10,0.35) 50%,
-    rgba(10,14,10,0.15) 100%
+    135deg,
+    #f5f2ec 0%,
+    #e8f0ea 20%,
+    #c8dece 35%,
+    #2a5c45 52%,
+    #1a3d2e 62%,
+    #b8963e 76%,
+    #ede9e0 88%,
+    #f5f2ec 100%
   );
+  background-size: 400% 400%;
+  animation: gradientFlow 18s ease infinite;
 }
 
-.hero-content {
-  position: relative; z-index: 2;
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 100% 0%; }
+  50%  { background-position: 100% 100%; }
+  75%  { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
 }
 
-.hero-dots {
-  position: absolute; bottom: 36px; left: 56px;
-  display: flex; gap: 10px; z-index: 2;
-}
-.hero-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,0.35);
-  cursor: pointer; transition: background 0.3s;
-}
-.hero-dot.active { background: rgba(255,255,255,0.9); }
+.hero-content { position: relative; z-index: 1; }
 .hero-label {
   font-size: 15px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 24px;
+  text-transform: uppercase; color: var(--green); margin-bottom: 24px;
 }
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(38px, 4.8vw, 68px);
   font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
-  color: var(--white); max-width: 860px; margin-bottom: 36px;
+  color: var(--ink); max-width: 860px; margin-bottom: 36px;
 }
-.hero h1 em { font-style: italic; color: #86efac; }
+.hero h1 em { font-style: italic; color: var(--green); }
 .hero-sub {
-  max-width: 560px; color: rgba(255,255,255,0.82);
+  max-width: 560px; color: var(--ink-mid);
   font-size: 18px; line-height: 1.8; font-weight: 400;
-  border-left: 2px solid rgba(255,255,255,0.4); padding-left: 22px;
+  border-left: 2px solid var(--green); padding-left: 22px;
 }
 .hero-scroll {
   position: absolute; bottom: 40px; right: 56px;
