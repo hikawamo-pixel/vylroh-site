@@ -72,29 +72,26 @@ nav {
   position: relative; overflow: hidden;
 }
 
-/* Gradient animation */
+/* Gradient animation - subtle */
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
   background: linear-gradient(
     135deg,
     #f5f2ec 0%,
-    #e8f0ea 20%,
-    #c8dece 35%,
-    #2a5c45 52%,
-    #1a3d2e 62%,
-    #b8963e 76%,
-    #ede9e0 88%,
+    #eef4f0 25%,
+    #e8f0ea 45%,
+    #f0ede4 65%,
+    #f5f0e8 80%,
     #f5f2ec 100%
   );
-  background-size: 400% 400%;
-  animation: gradientFlow 18s ease infinite;
+  background-size: 300% 300%;
+  animation: gradientFlow 20s ease infinite;
 }
 
 @keyframes gradientFlow {
   0%   { background-position: 0% 50%; }
-  25%  { background-position: 100% 0%; }
-  50%  { background-position: 100% 100%; }
-  75%  { background-position: 0% 100%; }
+  33%  { background-position: 100% 0%; }
+  66%  { background-position: 100% 100%; }
   100% { background-position: 0% 50%; }
 }
 
@@ -285,6 +282,86 @@ section { padding: 88px 56px; }
   transition: opacity 0.2s;
 }
 .product-link:hover { opacity: 0.7; }
+
+/* ── DOMAINS ── */
+.domains { background: var(--cream); }
+.domains-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; background: rgba(26,26,24,0.08); margin-top: 56px;
+}
+.domain-card {
+  background: var(--cream); padding: 48px 44px; transition: background 0.25s;
+}
+.domain-card:hover { background: var(--white); }
+.domain-number {
+  font-family: var(--font-display); font-size: 52px; font-weight: 300;
+  color: rgba(42,92,69,0.12); line-height: 1; margin-bottom: 14px;
+}
+.domain-card h3 {
+  font-family: var(--font-display); font-size: 24px; font-weight: 400;
+  letter-spacing: -0.01em; color: var(--ink); margin-bottom: 6px; line-height: 1.2;
+}
+.domain-en {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 18px; display: block;
+}
+.domain-card > p { font-size: 16px; color: var(--ink-mid); line-height: 1.75; margin-bottom: 20px; }
+.domain-items { display: flex; flex-direction: column; gap: 8px; }
+.domain-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--ink-mid); line-height: 1.5;
+}
+.domain-item::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0; margin-top: 7px;
+}
+
+/* ── PROJECTS ── */
+.projects { background: var(--cream-dark); }
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: rgba(26,26,24,0.08); margin-top: 56px;
+}
+.project-card {
+  background: var(--cream-dark); padding: 36px 32px; transition: background 0.25s;
+}
+.project-card:hover { background: var(--white); }
+.project-domain-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block;
+}
+.project-card h4 {
+  font-family: var(--font-display); font-size: 20px; font-weight: 400;
+  color: var(--ink); margin-bottom: 10px; line-height: 1.2;
+}
+.project-card p { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
+.project-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--green);
+  text-decoration: none; margin-top: 14px;
+  border-bottom: 1px solid rgba(42,92,69,0.3); padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+.project-link:hover { opacity: 0.7; }
+.proj-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-top: 14px;
+}
+.proj-status .dot { width: 7px; height: 7px; border-radius: 50%; }
+.ps-pilot .dot { background: #166534; }
+.ps-pilot { color: #166534; }
+.ps-dev .dot { background: var(--gold); }
+.ps-dev { color: var(--gold); }
+.ps-plan .dot { background: var(--ink-light); }
+.ps-plan { color: var(--ink-light); }
+.ps-labs .dot { background: #7e22ce; }
+.ps-labs { color: #7e22ce; }
+
+@media (max-width: 960px) {
+  .domains-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
 
 /* ── NEWS ── */
 .news { background: var(--cream-dark); }
