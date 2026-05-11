@@ -72,20 +72,20 @@ nav {
   position: relative; overflow: hidden;
 }
 
-/* Gradient animation - subtle */
+/* Gradient animation - visible but subtle */
 .hero::before {
   content: ''; position: absolute; inset: 0; z-index: 0;
   background: linear-gradient(
     135deg,
     #f5f2ec 0%,
-    #eef4f0 25%,
-    #e8f0ea 45%,
-    #f0ede4 65%,
-    #f5f0e8 80%,
+    #deeee6 20%,
+    #c8e0d2 38%,
+    #e8e0cc 58%,
+    #f0e8d8 75%,
     #f5f2ec 100%
   );
   background-size: 300% 300%;
-  animation: gradientFlow 20s ease infinite;
+  animation: gradientFlow 16s ease infinite;
 }
 
 @keyframes gradientFlow {
