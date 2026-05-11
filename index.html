@@ -26,11 +26,46 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-label">Vylroh株式会社 — 東京</p>
-  <h1>臨床現場から生まれる、<br>医療と生活のための<em>デジタル基盤。</em></h1>
-  <p class="hero-sub">Vylrohは、実際の診療現場で見えてくる課題をもとに、旅行者医療・クリニックAI・生活習慣支援・医療業務DXのためのデジタルプロダクトを開発・運営します。</p>
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image: url('hero1.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('hero2.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('hero3.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('hero4.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label">Vylroh株式会社 — 東京</p>
+    <h1>臨床現場から生まれる、<br>医療と生活のための<em>デジタル基盤。</em></h1>
+    <p class="hero-sub">Vylrohは、実際の診療現場で見えてくる課題をもとに、旅行者医療・クリニックAI・生活習慣支援・医療業務DXのためのデジタルプロダクトを開発・運営します。</p>
+  </div>
+  <div class="hero-dots">
+    <span class="hero-dot active" onclick="goToSlide(0)"></span>
+    <span class="hero-dot" onclick="goToSlide(1)"></span>
+    <span class="hero-dot" onclick="goToSlide(2)"></span>
+    <span class="hero-dot" onclick="goToSlide(3)"></span>
+  </div>
   <span class="hero-scroll">Scroll</span>
 </section>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function nextSlide() {
+    goToSlide((current + 1) % slides.length);
+  }
+
+  setInterval(nextSlide, 5000);
+</script>
 
 <!-- MISSION -->
 <div class="mission">

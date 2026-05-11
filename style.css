@@ -71,28 +71,57 @@ nav {
   padding: 120px 56px 80px;
   position: relative; overflow: hidden;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(42,92,69,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(184,150,62,0.06) 0%, transparent 60%);
-  pointer-events: none;
+
+/* Slideshow */
+.hero-slides {
+  position: absolute; inset: 0; z-index: 0;
 }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(10,14,10,0.72) 0%,
+    rgba(10,14,10,0.35) 50%,
+    rgba(10,14,10,0.15) 100%
+  );
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+}
+
+.hero-dots {
+  position: absolute; bottom: 36px; left: 56px;
+  display: flex; gap: 10px; z-index: 2;
+}
+.hero-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer; transition: background 0.3s;
+}
+.hero-dot.active { background: rgba(255,255,255,0.9); }
 .hero-label {
   font-size: 15px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--green); margin-bottom: 24px;
+  text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 24px;
 }
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(38px, 4.8vw, 68px);
   font-weight: 300; line-height: 1.1; letter-spacing: -0.025em;
-  color: var(--ink); max-width: 860px; margin-bottom: 36px;
+  color: var(--white); max-width: 860px; margin-bottom: 36px;
 }
-.hero h1 em { font-style: italic; color: var(--green); }
+.hero h1 em { font-style: italic; color: #86efac; }
 .hero-sub {
-  max-width: 560px; color: var(--ink-mid);
+  max-width: 560px; color: rgba(255,255,255,0.82);
   font-size: 18px; line-height: 1.8; font-weight: 400;
-  border-left: 2px solid var(--green); padding-left: 22px;
+  border-left: 2px solid rgba(255,255,255,0.4); padding-left: 22px;
 }
 .hero-scroll {
   position: absolute; bottom: 40px; right: 56px;
